@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding Invitation | Lokesh & Silky</title>
+    <!-- Elegant Font Import -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            /* Luxurious Midnight Rose & Soft Champagne Depth Gradient */
+            background: linear-gradient(135deg, #fffcfb 0%, #f7e9e3 50%, #fcefed 100%);
+            color: #3d342e;
+            text-align: center;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Animated Ambient Magical Lighting Effects */
+        .ambient-glow {
+            position: fixed;
+            width: 80vw;
+            height: 80vw;
+            border-radius: 50%;
+            z-index: -1;
+            filter: blur(80px);
+            opacity: 0.6;
+            pointer-events: none;
+        }
+        .glow-1 {
+            top: -20%;
+            left: -20%;
+            background: radial-gradient(circle, rgba(24bc, 188, 156, 0.25) 0%, rgba(255, 240, 245, 0) 70%);
+            animation: floatGlow 12s infinite alternate ease-in-out;
+        }
+        .glow-2 {
+            bottom: -10%;
+            right: -20%;
+            background: radial-gradient(circle, rgba(216, 196, 182, 0.4) 0%, rgba(255, 255, 255, 0) 70%);
+            animation: floatGlow 15s infinite alternate-reverse ease-in-out;
+        }
+
+        @keyframes floatGlow {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(5%, 8%) scale(1.1); }
+        }
+
+        /* Fine Art Frame Layout Container */
+        .invitation-frame {
+            max-width: 900px;
+            margin: 40px auto;
+            background: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            border-radius: 30px;
+            box-shadow: 0 30px 70px rgba(168, 148, 133, 0.12);
+            position: relative;
+            padding: 20px;
+        }
+
+        /* Delicate Inner Gold Border */
+        .invitation-frame::after {
+            content: "";
+            position: absolute;
+            top: 15px;
+            bottom: 15px;
+            left: 15px;
+            right: 15px;
+            border: 1px solid rgba(188, 156, 130, 0.35);
+            border-radius: 20px;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        section {
+            min-height: 85vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 60px 40px;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Title Screen */
+        .intro-sec {
+            background: transparent;
+        }
+        .subtitle {
+            font-size: 1.1rem;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: #8c7b6e;
+            margin-bottom: 25px;
+            font-weight: 400;
+        }
+        .names {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.5rem;
+            color: #2c2520;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
+        }
+        .names span {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            display: block;
+            font-size: 2.5rem;
+            margin: 15px 0;
+            color: #bfa38f;
+        }
+        
+        /* Ultra Glassmorphism Date Box */
+        .date-box {
+            margin-top: 40px;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            border-top: 1px solid rgba(188, 164, 146, 0.4);
+            border-bottom: 1px solid rgba(188, 164, 146, 0.4);
+            border-radius: 20px;
+            padding: 30px 55px;
+            display: inline-block;
+            box-shadow: 0 15px 35px rgba(168, 148, 133, 0.08);
+        }
+        .date-box div {
+            margin: 5px 0;
+        }
+        
+        /* Section Dividers */
+        .divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #bc9c82;
+            margin: 10px 0;
+            font-size: 1.8rem;
+            opacity: 0.8;
+            z-index: 2;
+            position: relative;
+        }
+        .divider::before, .divider::after {
+            content: "";
+            flex: 1;
+            max-width: 120px;
+            height: 1px;
+            background: linear-gradient(to var(--direction, right), rgba(188, 156, 130, 0), rgba(188, 156, 130, 0.5));
+            margin: 0 20px;
+        }
+        .divider::before { --direction: right; }
+        .divider::after { --direction: left; }
+
+        /* Details Grid with Frosted Cards */
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            max-width: 700px;
+            width: 100%;
+            margin-top: 40px;
+        }
+        @media (max-width: 650px) {
+            .grid-container { grid-template-columns: 1fr; gap: 20px; }
+            .names { font-size: 3.2rem; }
+            .invitation-frame { margin: 15px; }
+            section { padding: 40px 20px; }
+        }
+        .grid-item {
+            padding: 35px 25px;
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            border-radius: 18px;
+            box-shadow: 0 10px 30px rgba(140, 123, 110, 0.04);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .grid-item:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px rgba(140, 123, 110, 0.12);
+            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid rgba(188, 156, 130, 0.3);
+        }
+        .icon {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+        .item-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #2c2520;
+            font-weight: 600;
+        }
+
+        /* Quote Section - Delicate banner overlap */
+        .quote-sec {
+            background: rgba(249, 243, 240, 0.6);
+            backdrop-filter: blur(8px);
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.45rem;
+            line-height: 1.9;
+            padding: 70px 45px;
+            border-top: 1px solid rgba(188, 156, 130, 0.15);
+            border-bottom: 1px solid rgba(188, 156, 130, 0.15);
+            width: calc(100% + 40px);
+            margin-left: -20px;
+        }
+        .quote-author {
+            font-family: 'Poppins', sans-serif;
+            font-style: normal;
+            font-size: 0.9rem;
+            letter-spacing: 4px;
+            margin-top: 25px;
+            color: #8c7b6e;
+            text-transform: uppercase;
+        }
+
+        /* Premium RSVP Button */
+        .rsvp-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #4d4037 0%, #211b17 100%);
+            color: #ffffff;
+            padding: 18px 50px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            margin-top: 30px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            box-shadow: 0 10px 30px rgba(44, 37, 32, 0.2);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .rsvp-btn:hover {
+            transform: scale(1.04);
+            box-shadow: 0 15px 35px rgba(44, 37, 32, 0.35);
+            background: linear-gradient(135deg, #615247 0%, #332a24 100%);
+        }
+
+        footer {
+            padding: 50px 20px;
+            background: rgba(35, 30, 26, 0.98);
+            color: #fbf9f6;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border-bottom-left-radius: 28px;
+            border-bottom-right-radius: 28px;
+            position: relative;
+            z-index: 2;
+            margin: 0 -20px -20px -20px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Ambient Glowing Background Blobs -->
+    <div class="ambient-glow glow-1"></div>
+    <div class="ambient-glow glow-2"></div>
+
+    <!-- Main Decorative Invitation Frame -->
+    <div class="invitation-frame">
+
+        <!-- SECTION 1: Intro -->
+        <section class="intro-sec">
+            <p class="subtitle">Together Forever Begins</p>
+            <h1 class="names">
+                Lokesh
+                <span>&</span>
+                Silky
+            </h1>
+            <p style="color: #6d625a; font-size: 1.05rem; letter-spacing: 0.5px;">Request the honour of your presence</p>
+            
+            <div class="date-box">
+                <div style="font-size: 2.4rem; font-weight: 600; color: #2c2520; letter-spacing: 1px;">08</div>
+                <div style="letter-spacing: 3px; text-transform: uppercase; font-size: 0.95rem; font-weight: 500; color: #52453c;">July · 2026</div>
+                <div style="color: #a38974; font-style: italic; margin-top: 4px; font-size: 0.95rem;">Summer Wedding</div>
+            </div>
+        </section>
+
+        <div class="divider">🌸</div>
+
+        <!-- SECTION 2: Details -->
+        <section>
+            <h2 class="names" style="font-size: 2.5rem; margin-bottom: 5px;">Celebration Details</h2>
+            <p style="color: #8c7b6e; letter-spacing: 1px; font-size: 0.9rem; text-transform: uppercase; margin-bottom: 10px;">Join us on our special day</p>
+            
+            <div class="grid-container">
+                <!-- Ceremony -->
+                <div class="grid-item">
+                    <div class="icon">🌿</div>
+                    <div class="item-title">Ceremony</div>
+                    <div style="font-weight: 500; color: #2c2520; margin-bottom: 3px;">7:00 PM</div>
+                    <div style="font-size: 0.9rem; color: #6d625a;">Guests welcome from 6:30 PM</div>
+                </div>
+                <!-- Venue -->
+                <div class="grid-item">
+                    <div class="icon">🏛️</div>
+                    <div class="item-title">Venue</div>
+                    <div style="font-weight: 500; color: #2c2520; margin-bottom: 3px;">Khatirdari Banquet Hall</div>
+                    <div style="font-size: 0.9rem; color: #6d625a;">Celebration Spaces</div>
+                </div>
+                <!-- Dinner -->
+                <div class="grid-item">
+                    <div class="icon">🍽️</div>
+                    <div class="item-title">Dinner</div>
+                    <div style="font-weight: 500; color: #2c2520; margin-bottom: 3px;">9:00 PM</div>
+                    <div style="font-size: 0.9rem; color: #6d625a;">Dinner &amp; Celebrations to follow</div>
+                </div>
+                <!-- Dress Code -->
+                <div class="grid-item">
+                    <div class="icon">👗</div>
+                    <div class="item-title">Dress Code</div>
+                    <div style="font-weight: 500; color: #2c2520; margin-bottom: 3px;">Formal Attire</div>
+                    <div style="font-size: 0.9rem; color: #6d625a;">Traditional or Formal Recommended</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: Quote -->
+        <section class="quote-sec">
+            <div style="max-width: 650px; margin: 0 auto; padding: 0 20px;">
+                "With joyful hearts we invite you to witness the beginning of our forever — a day woven with love, laughter, and the people who matter most."
+                <div class="quote-author">— Lokesh &amp; Silky</div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: RSVP -->
+        <section style="min-height: 50vh;">
+            <h2 class="names" style="font-size: 2.8rem; margin-bottom: 5px;">Kindly RSVP</h2>
+            <p class="subtitle" style="font-size: 0.95rem; color: #a1836c; font-weight: 500; margin-bottom: 10px;">By the 6th of July, 2026</p>
+            
+            <a href="YOUR_GOOGLE_FORM_LINK_HERE" target="_blank" class="rsvp-btn">Confirm Attendance</a>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <div style="margin-bottom: 8px; font-family: 'Playfair Display', serif; font-size: 1.3rem; text-transform: none; font-style: italic; color: #bfa38f;">Lokesh &amp; Silky</div>
+            <div style="opacity: 0.6; font-size: 0.75rem;">08 · 07 · 2026  ·  Summer Wedding</div>
+        </footer>
+
+    </div>
+
+</body>
+</html>
