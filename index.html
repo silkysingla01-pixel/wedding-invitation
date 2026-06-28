@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding Invitation | Lokesh & Silky</title>
+    <!-- Elegant Font Import -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            /* Romantic Blush & Warm Champagne Watercolor-like Gradient Backing */
+            background: radial-gradient(circle at 10% 20%, rgba(253, 244, 245, 1) 0%, rgba(250, 239, 230, 1) 45%, rgba(243, 231, 233, 1) 90%);
+            color: #3d342e;
+            text-align: center;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Ambient glowing background shapes for a magical aesthetic */
+        body::before {
+            content: "";
+            position: absolute;
+            top: -10%;
+            left: -20%;
+            width: 60vw;
+            height: 60vw;
+            background: radial-gradient(circle, rgba(234, 191, 203, 0.25) 0%, rgba(255, 255, 255, 0) 70%);
+            z-index: -1;
+            filter: blur(50px);
+        }
+
+        body::after {
+            content: "";
+            position: absolute;
+            bottom: 10%;
+            right: -10%;
+            width: 50vw;
+            height: 50vw;
+            background: radial-gradient(circle, rgba(216, 196, 182, 0.3) 0%, rgba(255, 255, 255, 0) 70%);
+            z-index: -1;
+            filter: blur(40px);
+        }
+        
+        section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 60px 20px;
+            /* EFFECT 1: Prepare sections for fade-in scroll reveal */
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 1.2s cubic-bezier(0.215, 0.610, 0.355, 1), transform 1.2s cubic-bezier(0.215, 0.610, 0.355, 1);
+        }
+
+        /* Keep the first section visible instantly so guests don't see a blank page */
+        section.intro-sec {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* EFFECT 1: Class triggered by JavaScript on scroll */
+        section.reveal-appear {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Title Screen */
+        .intro-sec {
+            background: transparent;
+        }
+        .subtitle {
+            font-size: 1.1rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: #8c7b6e;
+            margin-bottom: 25px;
+            font-weight: 400;
+        }
+        .names {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            color: #2c2520;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
+        }
+        .names span {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            display: block;
+            font-size: 2.2rem;
+            margin: 15px 0;
+            color: #bfa38f;
+        }
+        
+        /* Glassmorphism Date Box */
+        .date-box {
+            margin-top: 40px;
+            background: rgba(255, 255, 255, 0.45);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            border-top: 1px solid rgba(188, 164, 146, 0.4);
+            border-bottom: 1px solid rgba(188, 164, 146, 0.4);
+            border-radius: 16px;
+            padding: 25px 45px;
+            display: inline-block;
+            box-shadow: 0 10px 30px rgba(168, 148, 133, 0.1);
+        }
+        .date-box div {
+            margin: 5px 0;
+        }
+        
+        /* Section Dividers */
+        .divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #bc9c82;
+            margin: 10px 0;
+            font-size: 1.8rem;
+            opacity: 0.8;
+        }
+        .divider::before, .divider::after {
+            content: "";
+            flex: 1;
+            max-width: 120px;
+            height: 1px;
+            background: linear-gradient(to var(--direction, right), rgba(188, 156, 130, 0), rgba(188, 156, 130, 0.5));
+            margin: 0 20px;
+        }
+        .divider::before { --direction: right; }
+        .divider::after { --direction: left; }
+
+        /* Details Grid with Premium Frost Cards */
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            max-width: 700px;
+            width: 100%;
+            margin-top: 40px;
+        }
+        @media (max-width: 600px) {
+            .grid-container { grid-template-columns: 1fr; gap: 20px; }
+            .names { font-size: 3rem; }
+        }
+        .grid-item {
+            padding: 30px 20px;
+            background: rgba(255, 255, 255, 0.65);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(140, 123, 110, 0.05);
+            transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), background 0.4s ease;
+        }
+        .grid-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(140, 123, 110, 0.15);
+            background: rgba(255, 255, 255, 0.85);
+        }
+        .icon {
+            font-size: 2rem;
+            margin-bottom: 12px;
+            display: inline-block;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.05));
+            transition: transform 0.3s ease;
+        }
+        /* Extra small touch: micro-bounce icon on card hover */
+        .grid-item:hover .icon {
+            transform: scale(1.15) rotate(3deg);
+        }
+        .item-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+            color: #2c2520;
+            font-weight: 600;
+        }
+
+        /* Quote Section - Soft overlay banner */
+        .quote-sec {
+            background: rgba(245, 234, 228, 0.5);
+            backdrop-filter: blur(4px);
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.4rem;
+            line-height: 1.9;
+            padding: 80px 40px;
+            border-top: 1px solid rgba(255,255,255,0.4);
+            border-bottom: 1px solid rgba(255,255,255,0.4);
+        }
+        .quote-author {
+            font-family: 'Poppins', sans-serif;
+            font-style: normal;
+            font-size: 0.9rem;
+            letter-spacing: 3px;
+            margin-top: 25px;
+            color: #8c7b6e;
+            text-transform: uppercase;
+        }
+
+        footer {
+            padding: 50px 20px;
+            background: #231e1a;
+            color: #fbf9f6;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* EFFECT 3: Petal Fall Style Rule base styling */
+        .falling-petal {
+            position: fixed;
+            top: -20px;
+            pointer-events: none;
+            z-index: 999;
+            user-select: none;
+            animation: fall linear forwards;
+        }
+        @keyframes fall {
+            to {
+                top: 105vh;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- SECTION 1: Intro -->
+    <section class="intro-sec">
+        <p class="subtitle">Together Forever Begins</p>
+        <h1 class="names">
+            Lokesh
+            <span>&</span>
+            Silky
+        </h1>
+        <p style="color: #6d625a; font-size: 1.05rem; letter-spacing: 0.5px;">Request the honour of your presence</p>
+        
+        <div class="date-box">
+            <div style="font-size: 2.2rem; font-weight: 600; color: #2c2520; letter-spacing: 1px;">08</div>
+            <div style="letter-spacing: 3px; text-transform: uppercase; font-size: 0.95rem; font-weight: 500; color: #52453c;">July · 2026</div>
+            <div style="color: #a38974; font-style: italic; margin-top: 4px; font-size: 0.95rem;">Summer Wedding</div>
+        </div>
+    </section>
+
+    <div class="divider">🌸</div>
+
+    <!-- SECTION 2: Details -->
+    <section>
+        <h2 class="names" style="font-size: 2.5rem; margin-bottom: 5px;">Celebration Details</h2>
+        <p style="color: #8c7b6e; letter-spacing: 1px; font-size: 0.9rem; text-transform: uppercase; margin-bottom: 10px;">Join us on our special day</p>
+        
+        <div class="grid-container">
+            <!-- Ceremony -->
+            <div class="grid-item">
+                <div class="icon">🌿</div>
+                <div class="item-title">Ceremony</div>
+                <div style="font-weight: 500; color: #2c2520; margin-bottom: 3px;">7:00 PM</div>
+                <div style="font-size: 0.9rem; color: #6d625a;">Guests welcome from 6:30 PM</div>
+            </div>
+            <!-- Venue -->
+            <div class="grid-item">
+                <div class="icon">🏛️</div>
+                <div class="item-title">Venue</div>
+                <div style="font-weight: 500; color: #2c2520; margin-bottom: 3px;">Khatirdari Banquet Hall</div>
+                <div style="font-size: 0.9rem; color: #6d625a;">Celebration Spaces</div>
+            </div>
+            <!-- Dinner -->
+            <div class="grid-item">
+                <div class="icon">🍽️</div>
+                <div class="item-title">Dinner</div>
+                <div style="font-weight: 500; color: #2c2520; margin-bottom: 3px;">9:00 PM</div>
+                <div style="font-size: 0.9rem; color: #6d625a;">Dinner &amp; Celebrations to follow</div>
+            </div>
+            <!-- Dress Code -->
+            <div class="grid-item">
+                <div class="icon">👗</div>
+                <div class="item-title">Dress Code</div>
+                <div style="font-weight: 500; color: #2c2520; margin-bottom: 3px;">Formal Attire</div>
+                <div style="font-size: 0.9rem; color: #6d625a;">Traditional or Formal Recommended</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: Quote -->
+    <section class="quote-sec">
+        <div style="max-width: 650px; margin: 0 auto;">
+            "With joyful hearts we invite you to witness the beginning of our forever — a day woven with love, laughter, and the people who matter most."
+            <div class="quote-author">— Lokesh &amp; Silky</div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div style="margin-bottom: 8px; font-family: 'Playfair Display', serif; font-size: 1.2rem; text-transform: none; font-style: italic;">Lokesh &amp; Silky</div>
+        <div style="opacity: 0.5; font-size: 0.75rem;">08 · 07 · 2026  ·  Summer Wedding</div>
+    </footer>
+
+    <!-- INTERACTIVE JAVASCRIPT EFFECTS -->
+    <script>
+        /* ========================================================
+           EFFECT A: SCROLL REVEAL (Intersection Observer)
+           ======================================================== */
+        const allSections = document.querySelectorAll('section');
+        
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('reveal-appear');
+                }
+            });
+        }, { 
+            threshold: 0.12, // Section triggers when 12% visible
+            rootMargin: "0px 0px -50px 0px"
+        });
+
+        allSections.forEach(section => {
+            revealObserver.observe(section);
+        });
+
+
+        /* ========================================================
+           EFFECT B: GENTLE PETAL & LEAF DROP (Summer Vibes)
+           ======================================================== */
+        function spawnPetal() {
+            const petal = document.createElement('div');
+            petal.classList.add('falling-petal');
+            
+            // Alternating mix of summer petals and soft leaves
+            const items = ['🌸', '🍃', '🌸', '✨'];
+            petal.innerHTML = items[Math.floor(Math.random() * items.length)];
+            
+            // Random styling setups for realism
+            petal.style.left = Math.random() * 100 + 'vw';
+            const size = Math.random() * 12 + 14; // 14px to 26px
+            petal.style.fontSize = `${size}px`;
+            petal.style.opacity = Math.random() * 0.4 + 0.3; // Gentle transparency values
+            
+            // Randomized falling speed
+            const fallDuration = Math.random() * 6 + 6; // 6s to 12s fall time
+            petal.style.animationDuration = `${fallDuration}s`;
+            
+            // Custom subtle sway side-to-side behavior
+            const swayDistance = Math.random() * 40 - 20; // -20px to 20px
+            petal.style.transform = `translateX(${swayDistance}px) rotate(${Math.random() * 360}deg)`;
+            
+            document.body.appendChild(petal);
+            
+            // Automatic cleanup to prevent webpage memory lag
+            setTimeout(() => {
+                petal.remove();
+            }, fallDuration * 1000);
+        }
+
+        // Drop a fresh item every 900ms
+        setInterval(spawnPetal, 900);
+    </script>
+
+</body>
+</html>
